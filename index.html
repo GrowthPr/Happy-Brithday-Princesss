@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card with For Princess</title>
+    <style>
+        /* Body and card styling */
+        body {
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+/* Countdown Timer Styles */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  color: #00ffe7;
+  text-shadow: 0 0 10px #00ffe7;
+  margin-bottom: 20px;
+}
+
+.time-box {
+  display: inline-block;
+  margin: 10px 15px;
+  padding: 20px;
+  background: #ffffff10;
+  border-radius: 12px;
+  min-width: 80px;
+  transition: transform 0.3s;
+  backdrop-filter: blur(5px);
+  border: 1px solid #ffffff40;
+}
+
+.time-box:hover {
+  transform: scale(1.1);
+}
+
+.time-box span {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: bold;
+  display: block;
+}
+
+.time-box h3 {
+  font-size: 1rem;
+  color: #fdd;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .time-box {
+    margin: 10px 8px;
+    padding: 15px;
+    min-width: 60px;
+  }
+
+  .time-box span {
+    font-size: 1.5rem;
+  }
+
+  .container h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+        /* Hidden by default until countdown finishes */
+        .birthdayCard {
+            
+            display: none; /* Hide by default */
+        }
+
+        .birthdayCard.show {
+            display: block; /* Show after countdown */
+        }
+
+        .birthdayCard:hover {
+            transform: rotateY(180deg);
+        }
+
+      
+        .cardFront {
+            background-color: #ffe6f0;
+        }
+
+      
+       
+
+        .time-box {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Countdown Timer Section -->
+    <div  class="container"  id="countdown">
+        <h2 style="color: aqua; font-size: 45px;">Princess Brithday Countdown</h2>
+        <div class="time-box">
+            
+            <span id="days" style="font-size: 34px;"></span> <h3>Days</h3>
+      
+        </div>
+        <div class="time-box">
+            <span id="hours" style="font-size: 34px;"></span>
+            <h3>Hours</h3>
+           
+        </div>
+        <div class="time-box">
+            <span id="minutes" style="font-size: 34px;"></span>
+           
+            <h3>Min.</h3>
+        </div>
+        <div class="time-box">
+            <span id="seconds" style="font-size: 34px;"></span>
+                      <h3>Sec.</h3>
+        </div>
+    </div>
+
+    <!-- Birthday Card Section (hidden by default) -->
+    <div class="body">
+        <div class="birthdayCard" onmouseover="confetti()">
+            <div class="cardFront">
+                <img src="https://github.com/DzarelDeveloper/Img/blob/main/ballon.png?raw=true" class="balloons" alt="balloons" />
+                <img src="https://github.com/DzarelDeveloper/Img/blob/main/hat.png?raw=true" alt="bdHat" class="bdHat" />
+                <img src="https://i.postimg.cc/Wpmgcqxr/R.png" alt="cake" class="cake" />
+                <h2 class="happy">Happy Birthday to Princess !!</h2>
+            </div>
+            <div class="cardInside">
+                <h3 class="back">HAPPY BIRTHDAY, PRINCESS! 👑</h3>
+                <p>22 May</p>
+                <p>Happy Birthday Bhanu! 🎉🎂</p>
+                
+                <p>1 saal se bhi zyada ka safar ho gaya hamara... 
+                is beech maine kuch apne khoye, par tumne kabhi mera saath nahi chhoda. ✨</p>
+        
+            
+                <p>Hamare beech fights bhi hui 😤, lekin un fights mein bhi pyaar chhupa tha 💖,
+                aur woh chhoti chhoti baatein, woh smile, sab kuch priceless tha 😄💬</p>
+            
+                <p>Aaj ka din tumhare liye khushiyo se bhara ho, jaisa tumhara dil hai —
+                caring, loving, aur ekdum real. 🌸✨</p>
+            
+
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js'></script>
+    <script>
+        // Confetti from both sides
+        function confettiSide() {
+            var end = Date.now() + 3 * 1000; // Show confetti for 10 seconds
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 }
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 }
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
+        // Countdown Timer Script
+        const targetDate = new Date("May 21 , 2025 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeRemaining = targetDate - now;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            if (timeRemaining < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").style.display = "none";
+                document.querySelector(".birthdayCard").classList.add("show");
+                confettiSide(); // Start confetti from both sides for 10 seconds
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
